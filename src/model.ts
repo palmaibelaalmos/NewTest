@@ -2,14 +2,25 @@ class Model{
     // Mezők, adattag-ok, attribútumok, tulajdonság, "változók" (Osztály állapotai)
     private guessNumber: number;
     private tips: number[];
+    private isGameOver: boolean;
 
     // Inicializálja az osztály mezőit - így helyet igényel a memóriában:
     constructor() {
         this.guessNumber = 0; // Inicializálás
         this.tips = [];  // Inicializálás
+        this.isGameOver = false;
     };
 
     // Képesség, metódus ("eljárás")
+    //Játék állapotának kezelése
+    get gameOver() {
+        return this.isGameOver;
+    }
+    set gameOver(value:boolean) {
+        this.isGameOver = value;
+    }
+
+
     createRndNum(){
         this.guessNumber = Math.floor(Math.random()*100) + 1;
         return;
